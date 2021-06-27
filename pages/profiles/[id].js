@@ -52,9 +52,9 @@ export async function getStaticProps({params}) {
 
   return {
     props: {
-      userData
-    },
-    revalidate: 10
+      userData,
+      revalidate: 10
+    }
   }
 }
 
