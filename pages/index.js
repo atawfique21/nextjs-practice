@@ -4,18 +4,6 @@ import utilStyles from '../styles/utils.module.css'
 import { getSortedPostsData } from '../lib/posts'
 import {getList} from '../lib/users'
 
-export async function getStaticProps() {
-  const allPostsData = getSortedPostsData()
-  const list = await getList()
-  return {
-    props: {
-      allPostsData,
-      list
-    },
-    revalidate: 10
-  }
-}
-
 export default function Home({allPostsData, list}) {
   return (
     <Layout home>
@@ -45,4 +33,16 @@ export default function Home({allPostsData, list}) {
       </section>
     </Layout>
   )
+}
+
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData()
+  const list = await getList()
+  return {
+    props: {
+      allPostsData,
+      list
+    },
+    revalidate: 5
+  }
 }
