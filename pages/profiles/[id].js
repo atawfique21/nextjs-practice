@@ -46,15 +46,16 @@ export async function getStaticProps({params}) {
     return {
       props: {
         userData: 'none'
-      }
+      },
+      revalidate: 10
     }
   }
 
   return {
     props: {
-      userData,
-      revalidate: 10
-    }
+      userData
+    },
+    // revalidate: 100
   }
 }
 
